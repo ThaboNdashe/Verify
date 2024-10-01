@@ -1,9 +1,45 @@
 @keyframes textColor {
-  0% { color: white; }
-  50% { color: #3b82f6; } /* This is Tailwind's blue-500 color */
-  100% { color: white; }
+  0%, 100% { color: white; }
+  50% { color: #93c5fd; } /* This is Tailwind's blue-300 color */
 }
 
-.animate-text-color {
+.animate-text-color-blue {
   animation: textColor 3s infinite;
+}
+
+@keyframes slideAndColor {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+    color: white;
+  }
+  20% {
+    transform: translateY(0);
+    opacity: 1;
+    color: white;
+  }
+  50% {
+    color: #93c5fd; /* This is Tailwind's blue-300 color */
+  }
+  80% {
+    transform: translateY(0);
+    opacity: 1;
+    color: white;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+    color: white;
+  }
+}
+
+.sliding-text {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.sliding-text.active {
+  animation: slideAndColor 5s ease-in-out;
 }

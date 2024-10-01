@@ -12,4 +12,10 @@ function Navbar() {
   );
 }
 
+
+document.getElementById('menu-icon').addEventListener('click', function () {
+  var navLinks = document.getElementById('nav-links');
+  navLinks.classList.toggle('active');
+});
+
 export default Navbar;

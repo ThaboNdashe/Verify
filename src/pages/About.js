@@ -34,14 +34,25 @@ function About() {
   return (
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-black inline-block">About Us</h1>
+          <div className="h-1 w-20 bg-orange-500 mx-auto mt-2"></div>
+        </div>
         <section className="about-us mb-16">
-          <div className="w-full md:w-8/12 mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center">Empowering Businesses with Accurate and Instant Identity Verification Solutions</h2>
-            <p className="text-lg mb-8 text-gray-600 text-center">VerifyNow offers seamless and secure identity verification and background check services tailored to your needs. Whether you're onboarding new employees, verifying tenant information, or conducting thorough background checks, VerifyNow ensures accuracy, reliability, and compliance.</p>
+          <div className="w-full md:w-10/12 mx-auto mb-16 flex flex-col md:flex-row items-start">
+            <div className="w-full md:w-1/2 pr-8">
+              <h2 className="text-3xl font-bold mb-6 text-gray-800 text-left">
+                Empowering Businesses with Accurate and Instant Identity Verification Solutions
+              </h2>
+            </div>
+            <div className="w-full md:w-1/2 bg-white-100 border-l-4 border-white-500 text-black p-4 rounded-lg shadow-md">
+              <p className="text-lg mb-2">VerifyNow offers seamless and secure identity verification and background check services tailored to your needs. Whether you're onboarding new employees, verifying tenant information, or conducting thorough background checks, VerifyNow ensures accuracy, reliability, and compliance.</p>
+
+            </div>
           </div>
 
           <section className="why-choose-us mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Why Choose VerifyNow?</h2>
+            <h3 className="text-3xl font-bold mb-8 text-center text-gray-800">Why Choose VerifyNow?</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:scale-105">
                 <div className="text-4xl mb-4 text-center">🔒</div>
