@@ -41,7 +41,7 @@ function ContactUs() {
     if (validateForm()) {
       try {
         console.log('Sending form data:', formData);
-        const response = await fetch('http://localhost:3002/api/send-email', {
+        const response = await fetch('https://gmail.googleapis.com/gmail/v1/users/me/messages/send', { // Update the URL to your email API endpoint
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -49,19 +49,12 @@ function ContactUs() {
           body: JSON.stringify(formData),
         });
 
-        console.log('Response status:', response.status);
-        const responseText = await response.text();
-        console.log('Response text:', responseText);
-
-        let responseData;
-        try {
-          responseData = JSON.parse(responseText);
-        } catch (e) {
-          console.error('Error parsing JSON:', e);
-          console.error('Raw response:', responseText);
-          alert('Received invalid response from server. Please try again.');
-          return;
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
+
+        const responseData = await response.json();
+        console.log('Response data:', responseData);
 
         if (response.ok) {
           alert('Your message has been sent successfully!');

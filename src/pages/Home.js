@@ -74,7 +74,7 @@ function Home() {
   }, []);
 
   return (
-    <main className="relative"> {/* Remove pt-20 class */}
+    <main className="relative">
       <Link
         to="/services"
         className={`fixed top-24 right-4 bg-primary-600 text-white p-2 rounded-full shadow-lg hover:bg-primary-700 transition-all duration-300 z-50 ${showButton ? 'translate-x-0' : 'translate-x-full'
@@ -125,104 +125,129 @@ function Home() {
         </div>
       </section>
 
-      <section className="about-us py-16">
+      <section className="about-us py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
         <div className="container mx-auto px-4">
-          <div className="w-full md:w-10/12 mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-6 text-black-700 text-center rounded-lg shadow-md">Empowering Businesses with Accurate and Instant Identity Verification Solutions</h2>
-            <div className="bg-[#0a4661] p-8 rounded-lg shadow-md">
-              <p className="text-lg mb-4 text-white">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl font-bold mb-8 text-gray-800 text-center">
+              Empowering Businesses with
+              <span className="block text-blue-600">Accurate and Instant Identity Verification</span>
+            </h2>
+            <div className="bg-white p-8 rounded-xl relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-2 h-full "></div>
+              <p className="text-xl mb-6 text-gray-700 leading-relaxed">
                 VerifyNow offers seamless and secure identity verification and background check services tailored to your needs. Our cutting-edge solutions provide businesses with the confidence they need to make informed decisions quickly and securely.
               </p>
-              <p className="text-lg text-white">
+              <p className="text-xl text-gray-700 leading-relaxed">
                 Whether you're onboarding new employees, verifying tenant information, or conducting thorough background checks, VerifyNow ensures accuracy, reliability, and compliance with evolving regulatory requirements.
               </p>
+              <div className="mt-8 flex items-center justify-center"></div>
+            </div>
+            <div className="mt-12 flex justify-center space-x-8">
+              <div className="text-center">
+                <span className="text-4xl font-bold text-blue-600">99.9%</span>
+                <p className="text-gray-600 mt-2">Accuracy Rate</p>
+              </div>
+              <div className="text-center">
+                <span className="text-4xl font-bold text-blue-600">24/7</span>
+                <p className="text-gray-600 mt-2">Support</p>
+              </div>
+              <div className="text-center">
+                <span className="text-4xl font-bold text-blue-600">100+</span>
+                <p className="text-gray-600 mt-2">Integrations</p>
+              </div>
             </div>
           </div>
-          
         </div>
       </section>
 
-      <section className="key-features py-16 bg-white-100 ">
-        <div className="container mx-auto px-4 ">
-          <h2 className="text-3xl font-bold mb-8 text-center text-black">Key Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-            {[{ icon: "flash-outline", text: "Fast, accurate verification processes" },
-            { icon: "git-branch-outline", text: "Seamless integration with existing systems" },
-            { icon: "cash-outline", text: "Cost-effective and scalable solutions" },
-            { icon: "business-outline", text: "Support across multiple industries" },
-            { icon: "laptop-outline", text: "Easy-to-use platform with real-time results" }].map((feature, index) => (
-              <div key={index} className="flex items-center bg-[#0a4661] p-4 rounded-lg shadow-md">
-                <ion-icon name={feature.icon} class="text-4xl text-white mr-4"></ion-icon>
-                <p className="text-lg text-white">{feature.text}</p>
+      <section className="key-features py-20">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row items-center lg:items-start">
+            <div className="lg:w-1/3 mb-12 lg:mb-0 lg:pr-12">
+              <h2 className="text-4xl font-bold text-gray-800 mb-6 lg:sticky lg:top-8">Key Features</h2>
+              <p className="text-gray-600">Discover the powerful features that make our verification system stand out from the rest.</p>
+            </div>
+            <div className="lg:w-2/3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                {[
+                  { icon: "flash-outline", text: "Fast, accurate verification" },
+                  { icon: "git-branch-outline", text: "Seamless integration" },
+                  { icon: "cash-outline", text: "Cost-effective solutions" },
+                  { icon: "business-outline", text: "Multi-industry support" },
+                  { icon: "laptop-outline", text: "User-friendly platform" },
+                  { icon: "shield-checkmark-outline", text: "Real-time results" }
+                ].map((feature, index) => (
+                  <div key={index} className="flex items-center group">
+                    <div className="mr-4 relative">
+                      <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow duration-300">
+                        <ion-icon name={feature.icon} class="text-2xl text-blue-500 group-hover:text-blue-600 transition-colors duration-300"></ion-icon>
+                      </div>
+                      <div className="absolute inset-0 bg-blue-100 rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"></div>
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-800">{feature.text}</h3>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
-      
-      <section className="key-features py-16 bg-white-100 ">
-      <div ref={missionRef} className="flex flex-col md:flex-row items-start justify-between opacity-0 transition-opacity duration-1000 ease-out mb-16 px-4 md:px-10">
-        <div className="md:w-4/12 mb-8 md:mb-0"> {/* Decreased from 5/12 to 4/12 */}
-          <img
-            src={`${process.env.PUBLIC_URL}/images/access.png`}
-            alt="Our Mission"
-            className="w-full h-auto rounded-lg shadow-md"
-          />
-        </div>
-        <div className="md:w-7/12"> {/* Increased from 6/12 to 7/12 */}
-          <h3 className="text-3xl font-bold mb-8 text-center text-black">VerifyNow Access</h3>
-          <div className="bg-[#0a4661] p-6 rounded-lg shadow-md">
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white text-sm"> {/* Added text-sm to reduce text size */}
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                <span>Access to all major credit bureaus</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                <span>CIPC</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                <span>SARS</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                <span>Department of Home Affairs</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                <span>ID Verifications (Fraud Prevention)</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                <span>Contact Details</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                <span>UN Sanctions and SA PEP (politically exposed person)</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                <span>World Wide Consolidate AML Database (AML - anti-money laundering) check</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                <span>Interpol list</span>
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                <span>Deeds Offices</span>
-              </li>
-            </ul>
+
+      <section className="verifynow-access py-24 bg-gradient-to-r from-blue-200 to-blue-500"> {/* Darker blue gradient */}
+        <div className="container mx-auto px-4">
+          <h2 className="text-5xl font-bold mb-16 text-center text-white"> {/* Changed text color to white for contrast */}
+            VerifyNow <span className="text-blue-200">Access</span>
+          </h2>
+          <div ref={missionRef} className="flex flex-col lg:flex-row items-center justify-between opacity-0 transition-opacity duration-1000 ease-out">
+            <div className="lg:w-5/12 mb-12 lg:mb-0">
+              <div className="relative">
+                <div className="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+                <div className="absolute bottom-0 right-0 w-72 h-72 bg-indigo-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                <div className="relative z-10 grid grid-cols-1 gap-6"> 
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/verification.png`}
+                    alt="Verification Process"
+                    className="w-full h-full object-cover rounded-2xl transform hover:scale-105 transition-all duration-300"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="lg:w-6/12 lg:pl-16">
+              <div className="bg-white p-10 rounded-3xl hover:shadow-2xl transition-shadow duration-300">
+                <h3 className="text-3xl font-semibold mb-8 text-gray-800">Our Comprehensive Verification Services</h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {[
+                    "Access to major credit bureaus",
+                    "CIPC verification",
+                    "SARS verification",
+                    "Department of Home Affairs",
+                    "ID Verification (Fraud Prevention)",
+                    "Contact Details verification",
+                    "UN Sanctions and SA PEP checks",
+                    "AML Database checks",
+                    "Interpol list verification",
+                    "Deeds Office searches"
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-center group">
+                      <div className="w-10 h-10 mr-4 flex-shrink-0 bg-blue-100 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-all duration-300">
+                        <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                      <span className="text-gray-700 group-hover:text-blue-600 transition-colors duration-300">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
       </section>
 
       <div ref={visionRef} className="flex flex-col items-center justify-center opacity-0 transition-opacity duration-1000 ease-out my-16">
         <h3 className="text-3xl font-bold mb-8 text-center text-black">How it Works</h3>
         <div className="w-full max-w-4xl">
-          <div className="bg-white p-8 rounded-lg shadow-md">
+          <div className="bg-white p-8 rounded-lg">
             <div className="flex flex-col md:flex-row justify-between items-center relative">
               {[
                 { icon: "document-text-outline", title: "Submit Request", description: "Provide necessary details" },
@@ -243,49 +268,7 @@ function Home() {
         </div>
       </div>
 
-      <section className="features py-16 bg-gradient-to-tr from-[#0a4661] to-[#235469]">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[{
-              icon: "flash-outline",
-              title: "Identity Verification",
-              description: "Instantly verify the authenticity of government-issued IDs, passports, and more using our advanced technology that scans over 6,500 documents from 200 countries.",
-              link: "/services/identity-verification"
-            },
-            {
-              icon: "shield-checkmark-outline",
-              title: "Background Checks",
-              description: "Comprehensive background screening for employment, tenant screening, and more, including criminal history, education, and employment verification.",
-              link: "/services/background-checks"
-            },
-            {
-              icon: "lock-closed-outline",
-              title: "Continuous Monitoring",
-              description: "Stay updated with our real-time monitoring services that alert you to any new information, such as arrests or other legal issues.",
-              link: "/services/continuous-monitoring"
-            }].map((feature, index) => (
-              <div 
-                key={index}
-                ref={featureRefs[index]}
-                className="feature-item text-center p-6 bg-white rounded-lg shadow-md opacity-0 translate-y-10 transition-all duration-500 ease-out flex flex-col justify-between"
-              >
-                <div>
-                  <ion-icon name={feature.icon} class="text-5xl text-primary-500 mb-4"></ion-icon>
-                  <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                  <p className="text-gray-600 mb-4">{feature.description}</p>
-                </div>
-                <Link 
-                  to={feature.link}
-                  className="inline-block bg-primary-500 text-white px-4 py-2 rounded-md hover:bg-primary-600 transition-colors duration-300 mt-4"
-                >
-                  Read More
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
     </main>
   );
 }

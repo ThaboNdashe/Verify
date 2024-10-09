@@ -72,32 +72,33 @@ function About() {
             </div>
           </section>
 
-          <div ref={missionRef} className="flex flex-col md:flex-row-reverse items-center justify-center opacity-0 transition-opacity duration-1000 ease-out mb-16">
-            <div className="md:w-1/2 mb-8 md:mb-0 md:pl-8">
-              <h3 className="text-2xl font-bold mb-4 text-gray-800">Our Mission</h3>
-              <p className="text-lg mb-4 text-gray-600">To provide businesses with the tools they need to verify identities quickly and securely, ensuring trust and reducing fraud across industries.</p>
-            </div>
-            <div className="md:w-1/2">
-              <img
-                src={`${process.env.PUBLIC_URL}/images/mission.png`}
-                alt="Our Mission"
-                className="w-full h-auto rounded-lg shadow-md"
-              />
+          <div ref={missionRef} className="opacity-0 transition-all duration-1000 ease-out mb-16 transform translate-y-10">
+            <div className="bg-gradient-to-r from-orange-100 to-orange-200 rounded-lg shadow-lg p-8">
+              <div className="flex flex-col md:flex-row justify-between items-stretch">
+                <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-3xl font-bold mb-4 text-gray-800 flex items-center">
+                      <span className="text-orange-500 mr-2">🎯</span> Our Mission
+                    </h3>
+                    <p className="text-lg mb-4 text-gray-700 leading-relaxed">
+                      To provide businesses with the tools they need to verify identities quickly and securely, ensuring trust and reducing fraud across industries.
+                    </p>
+                  </div>
+                </div>
+                <div className="md:w-1/2 md:pl-8 md:border-l-2 border-orange-300 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-3xl font-bold mb-4 text-gray-800 flex items-center">
+                      <span className="text-orange-500 mr-2">🔭</span> Our Vision
+                    </h3>
+                    <p className="text-lg mb-4 text-gray-700 leading-relaxed">
+                      To be the leading provider of verification services, recognized for innovation, reliability, and excellence in customer service.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div ref={visionRef} className="flex flex-col md:flex-row items-center justify-center opacity-0 transition-opacity duration-1000 ease-out">
-            <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-              <h3 className="text-2xl font-bold mb-4 text-gray-800">Our Vision</h3>
-              <p className="text-lg mb-4 text-gray-600">To be the leading provider of verification services, recognized for innovation, reliability, and excellence in customer service.</p>
-            </div>
-            <div className="md:w-1/2">
-              <img
-                src={`${process.env.PUBLIC_URL}/images/vision.png`}
-                alt="Our Vision"
-                className="w-full h-auto rounded-lg shadow-md"
-              />
-            </div>
-          </div>
+          
         </section>
       </div>
     </div>
