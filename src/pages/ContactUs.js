@@ -40,8 +40,7 @@ function ContactUs() {
     event.preventDefault();
     if (validateForm()) {
       try {
-        console.log('Sending form data:', formData);
-        const response = await fetch('https://gmail.googleapis.com/gmail/v1/users/me/messages/send', { // Update the URL to your email API endpoint
+        const response = await fetch('http://localhost:3001/send-email', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -49,12 +48,8 @@ function ContactUs() {
           body: JSON.stringify(formData),
         });
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const responseData = await response.json();
-        console.log('Response data:', responseData);
+        const data = await response.json();
+        console.log(data);
 
         if (response.ok) {
           alert('Your message has been sent successfully!');
@@ -67,8 +62,8 @@ function ContactUs() {
             message: ''
           });
         } else {
-          console.error('Server response:', responseData);
-          alert(`Error: ${responseData.details || responseData.error || 'There was an error sending your message. Please try again.'}`);
+          console.error('Server response:', data);
+          alert(`Error: ${data.message}`);
         }
       } catch (error) {
         console.error('Fetch error:', error);
