@@ -19,9 +19,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "build": "react-scripts build",
     "server": "node server.js",
     "dev": "concurrently \"npm run server\" \"npm start\""
-  },
+  }
+,
   "eslintConfig": {
     "extends": [
       "react-app",
